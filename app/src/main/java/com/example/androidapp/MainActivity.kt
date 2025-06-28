@@ -12,11 +12,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androidapp.ui.theme.AndroidAppTheme
+import java.time.LocalDate
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {}
+    }
+
+    private fun calculateDate(number: Long): LocalDate {
+        val daysToAdd = (number / 100_000)
+        val startDate = LocalDate.of(1899, 12, 31)
+
+        return startDate.plusDays(daysToAdd)
     }
 }

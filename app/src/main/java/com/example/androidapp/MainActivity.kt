@@ -27,4 +27,14 @@ class MainActivity : ComponentActivity() {
 
         return startDate.plusDays(daysToAdd)
     }
+
+    private fun calculateSex(number: Long): String {
+        val digit = number.toString()[8].toInt()
+
+        return if (digit % 2 == 1) {
+            "чоловік"
+        } else {
+            "жінка"
+        }
+    }
 }
